@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="overall-container">
+      <div class="header">
+        <h2>Where in the world?</h2>
+      </div>
+      <div class="main">
+        <div class="filter-container">
+          <div>
+            <input class="filter-countries" onkeyup="filterCountries(event)" type="text" placeholder="Search" />
+          </div>
+          <div>
+            <select class="region-selector" onchange="filterCountriesByRegion(event)" name="regions">
+            </select>
+          </div>
+        </div>
+
+         <div class="countries-container"></div>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  background-color: hsl(0, 0%, 98%);
+}
+
+.main {
+  margin: 2rem;
+}
+
+.header {
+  padding: 1rem;
+  background-color: hsl(0, 0%, 52%);
+}
+
+.header input {
+  width: 30%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: white;
+  border: none;
+}
+
+.country-name {
+  /* margin-top: 1rem; */
+  /* margin-bottom: 1rem; */
+  font-weight: 700;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.countries-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.country-card {
+  margin: 1rem;
+  width: 20vw;
+  height: 20vw;
+  /* flex-basis: 21%; */
+  font-size: 14px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  margin: 1rem;
+}
+
+.flag-img {
+  width: 100%;
+  height: 150px;
+}
+
+.country-name,
+.capital,
+.population {
+  margin-top: 0.3rem;
+}
+
+.region-selector {
+  width: 10vw;
+  background-color: #fff;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.filter-countries {
+  width: 20vw;
+  font-size: inherit;
+  background-color: #fff;
+  padding: 0.5rem;
+  font-family: inherit;
+}
