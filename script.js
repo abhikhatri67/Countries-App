@@ -1,6 +1,8 @@
 const countryContainerEl = document.querySelector(".countries-container");
 const regionSelectorEl = document.querySelector(".region-selector");
 
+countryContainerEl.addEventListener("click", onClickCountry);
+
 countries = [];
 regions = [];
 
@@ -63,6 +65,13 @@ function filterCountriesByRegion(event) {
     (country) => country.region === value
   );
   renderCountries(filterCountries);
+}
+
+function onClickCountry(event) {
+  const countryCard = event.target.closest(".country-card");
+  const country = countryCard.querySelector(".country-name").innerText;
+  console.log("country: ", country);
+  location.href = `/countries/country.html?country=${country}`;
 }
 
 async function init() {

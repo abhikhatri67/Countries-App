@@ -15,10 +15,11 @@
       <div class="main">
         <div class="filter-container">
           <div>
-            <input class="filter-countries" onkeyup="filterCountries(event)" type="text" placeholder="Search" />
+            <input class="filter-countries" onkeyup="filterCountries(event)" type="text" placeholder="Search for a country..." />
           </div>
           <div>
             <select class="region-selector" onchange="filterCountriesByRegion(event)" name="regions">
+              <option disabled selected value>Select an option</option>
             </select>
           </div>
         </div>
