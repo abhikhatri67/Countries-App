@@ -68,10 +68,11 @@ function filterCountriesByRegion(event) {
 }
 
 function onClickCountry(event) {
+  console.log("event: ", event);
   const countryCard = event.target.closest(".country-card");
   const country = countryCard.querySelector(".country-name").innerText;
   console.log("country: ", country);
-  location.href = `/countries/country.html?country=${country}`;
+  location.href = `/country.html?country=${country}`;
 }
 
 async function init() {

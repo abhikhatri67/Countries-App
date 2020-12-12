@@ -1,4 +1,7 @@
 const overallContainerEl = document.querySelector(".overall-container");
+const titleEl = document.querySelector("title");
+
+var countryName = "";
 
 async function getCountryDetails(country) {
   const resp = await fetch(
@@ -12,6 +15,9 @@ async function getCountryDetails(country) {
 async function initCountry() {
   const country = window.location.search.split("=")[1];
   const details = await getCountryDetails(country);
+
+  // Update title here.
+  titleEl.innerText = details[0].name;
 
   renderCountry(details);
 }
