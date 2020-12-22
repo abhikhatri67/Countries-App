@@ -1,7 +1,9 @@
 const countryContainerEl = document.querySelector(".countries-container");
 const regionSelectorEl = document.querySelector(".region-selector");
+const darkModeBtnEl = document.querySelector(".btn-dark-mode");
 
 countryContainerEl.addEventListener("click", onClickCountry);
+darkModeBtnEl.addEventListener("click", toggleDarkMode);
 
 countries = [];
 regions = [];
@@ -68,10 +70,9 @@ function filterCountriesByRegion(event) {
 }
 
 function onClickCountry(event) {
-  console.log("event: ", event);
   const countryCard = event.target.closest(".country-card");
   const country = countryCard.querySelector(".country-name").innerText;
-  console.log("country: ", country);
+
   location.href = `/country.html?country=${country}`;
 }
 
@@ -80,6 +81,29 @@ async function init() {
   regions = getRegionsFromCountries(countries);
   renderRegions(regions);
   renderCountries(countries);
+}
+
+function toggleDarkMode() {
+  const filterCountriesEl = document.querySelector(".filter-countries");
+  darkModeBtnEl.classList.toggle("active");
+  const isDarkMode = darkModeBtnEl.classList.contains("active");
+
+  const body = document.body;
+  const header = document.querySelector(".header");
+
+  body.style.color = isDarkMode ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)";
+  body.style.backgroundColor = isDarkMode
+    ? "hsl(207, 26%, 17%)"
+    : "hsl(0, 0%, 98%)";
+  header.style.backgroundColor = isDarkMode
+    ? "hsl(209, 23%, 22%)"
+    : "hsl(0, 0%, 94%)";
+  filterCountriesEl.style.backgroundColor = isDarkMode
+    ? "hsl(209, 23%, 22%)"
+    : "hsl(0, 0%, 98%)";
+  regionSelectorEl.style.backgroundColor = isDarkMode
+    ? "hsl(209, 23%, 22%)"
+    : "hsl(0, 0%, 98%)";
 }
 
 init();

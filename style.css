@@ -7,7 +7,9 @@
 
 body {
   font-family: "Nunito Sans", sans-serif;
-  background-color: hsl(0, 0%, 98%);
+  /* background-color: hsl(0, 0%, 98%); */
+  background-color: hsl(207, 26%, 17%);
+  color: white;
 }
 
 .main {
@@ -18,8 +20,10 @@ body {
   padding: 1rem;
   padding-left: 3rem;
   font-weight: 900;
-  background-color: hsl(0, 0%, 94%);
-  box-shadow: 0px 20px 0px 0px #fff;
+  background-color: hsl(209, 23%, 22%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header input {
@@ -74,16 +78,48 @@ body {
 
 .region-selector {
   width: 15vw;
-  background-color: #fff;
-  padding: 0.5rem;
+  background-color: hsl(209, 23%, 22%);
+  padding: 0.5rem 1rem;
   font-family: inherit;
   font-size: inherit;
+  border: none;
+  color: inherit;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .filter-countries {
   width: 20vw;
   font-size: inherit;
-  background-color: #fff;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   font-family: inherit;
+  color: white;
+  border: 0;
+  background-color: hsl(209, 23%, 22%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.region-selector:focus,
+.filter-countries:focus {
+  outline: none;
+}
+
+.btn-dark-mode {
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+  /* color: hsl(207, 26%, 17%); */
+}
+
+.btn-dark-mode:focus {
+  outline: none;
+}
+
+.btn-dark-mode.active {
+  color: white;
+}
+
+.mode-label {
+  font-weight: bold;
+  margin-left: 5px;
 }
