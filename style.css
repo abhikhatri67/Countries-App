@@ -7,7 +7,6 @@
 
 body {
   font-family: "Nunito Sans", sans-serif;
-  /* background-color: hsl(0, 0%, 98%); */
   background-color: hsl(207, 26%, 17%);
   color: white;
 }
@@ -35,8 +34,6 @@ body {
 }
 
 .country-name {
-  /* margin-top: 1rem; */
-  /* margin-bottom: 1rem; */
   font-weight: 700;
 }
 
@@ -56,7 +53,6 @@ body {
   margin: 1rem;
   width: 20vw;
   height: 20vw;
-  /* flex-basis: 21%; */
   font-size: 14px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -92,7 +88,7 @@ body {
   font-size: inherit;
   padding: 0.5rem 1rem;
   font-family: inherit;
-  color: white;
+  color: inherit;
   border: 0;
   background-color: hsl(209, 23%, 22%);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -108,7 +104,6 @@ body {
   cursor: pointer;
   color: inherit;
   background-color: inherit;
-  /* color: hsl(207, 26%, 17%); */
 }
 
 .btn-dark-mode:focus {

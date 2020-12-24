@@ -5,8 +5,20 @@ const darkModeBtnEl = document.querySelector(".btn-dark-mode");
 countryContainerEl.addEventListener("click", onClickCountry);
 darkModeBtnEl.addEventListener("click", toggleDarkMode);
 
-countries = [];
-regions = [];
+let countries = [];
+let regions = [];
+
+function initTheme() {
+  let isDarkMode = getItem("darkMode");
+  changeTheme(isDarkMode);
+}
+
+async function init() {
+  countries = await getCountries();
+  regions = getRegionsFromCountries(countries);
+  renderRegions(regions);
+  renderCountries(countries);
+}
 
 async function getCountries() {
   const resp = await fetch("https://restcountries.eu/rest/v2/all");
@@ -63,30 +75,28 @@ function filterCountries(event) {
 
 function filterCountriesByRegion(event) {
   const value = event.target.value;
-  const filterCountries = countries.filter(
+  const filteredCountries = countries.filter(
     (country) => country.region === value
   );
-  renderCountries(filterCountries);
+  renderCountries(filteredCountries);
 }
 
 function onClickCountry(event) {
   const countryCard = event.target.closest(".country-card");
   const country = countryCard.querySelector(".country-name").innerText;
 
-  location.href = `/country.html?country=${country}`;
-}
-
-async function init() {
-  countries = await getCountries();
-  regions = getRegionsFromCountries(countries);
-  renderRegions(regions);
-  renderCountries(countries);
+  location.href = `/country/country.html?country=${country}`;
 }
 
 function toggleDarkMode() {
-  const filterCountriesEl = document.querySelector(".filter-countries");
   darkModeBtnEl.classList.toggle("active");
   const isDarkMode = darkModeBtnEl.classList.contains("active");
+  setItem("darkMode", isDarkMode);
+  changeTheme(isDarkMode);
+}
+
+function changeTheme(isDarkMode) {
+  const filterCountriesEl = document.querySelector(".filter-countries");
 
   const body = document.body;
   const header = document.querySelector(".header");
@@ -104,6 +114,16 @@ function toggleDarkMode() {
   regionSelectorEl.style.backgroundColor = isDarkMode
     ? "hsl(209, 23%, 22%)"
     : "hsl(0, 0%, 98%)";
+  darkModeBtnEl.style.color = isDarkMode ? "white" : "black";
 }
 
+function setItem(key, value) {
+  localStorage.setItem(key, value);
+}
+
+function getItem(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+
+initTheme();
 init();

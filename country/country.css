@@ -6,17 +6,20 @@
 }
 
 body {
+  background-color: hsl(207, 26%, 17%);
   font-family: "Nunito Sans", sans-serif;
-  background-color: hsl(0, 0%, 98%);
   font-size: 16px;
+  color: white;
 }
 
 .header {
   padding: 1rem;
   padding-left: 3rem;
   font-weight: 900;
-  background-color: hsl(0, 0%, 96%);
-  box-shadow: 0px 5px 0px 0px hsl(0, 0%, 97%);
+  background-color: hsl(209, 23%, 22%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .overall-container {
@@ -60,12 +63,35 @@ img {
 
 .btn {
   background-color: inherit;
+  text-decoration: none;
   border: 1px solid gray;
   padding: 0.3rem 1rem 0.3rem 1rem;
   font-style: inherit;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.2);
+  color: inherit;
 }
 
 .border-button-container {
   margin-left: 1rem;
+}
+
+.btn-dark-mode {
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+  color: inherit;
+}
+
+.btn-dark-mode:focus {
+  outline: none;
+}
+
+.btn-dark-mode.active {
+  color: white;
+}
+
+.mode-label {
+  font-weight: bold;
+  margin-left: 5px;
 }

@@ -1,7 +1,15 @@
 const overallContainerEl = document.querySelector(".overall-container");
 const titleEl = document.querySelector("title");
+const darkModeBtnEl = document.querySelector(".btn-dark-mode");
 
-var countryName = "";
+darkModeBtnEl.addEventListener("click", toggleDarkMode);
+
+let countryName = "";
+
+function initTheme() {
+  let isDarkMode = getItem("darkMode");
+  changeTheme(isDarkMode);
+}
 
 async function getCountryDetails(country) {
   const resp = await fetch(
@@ -64,4 +72,33 @@ function renderCountry(countryDetails) {
   `;
 }
 
+function toggleDarkMode() {
+  darkModeBtnEl.classList.toggle("active");
+  const isDarkMode = darkModeBtnEl.classList.contains("active");
+  setItem("darkMode", isDarkMode);
+  changeTheme(isDarkMode);
+}
+
+function changeTheme(isDarkMode) {
+  const body = document.body;
+  const header = document.querySelector(".header");
+
+  body.style.color = isDarkMode ? "hsl(0, 0%, 100%)" : "hsl(200, 15%, 8%)";
+  body.style.backgroundColor = isDarkMode
+    ? "hsl(207, 26%, 17%)"
+    : "hsl(0, 0%, 98%)";
+  header.style.backgroundColor = isDarkMode
+    ? "hsl(209, 23%, 22%)"
+    : "hsl(0, 0%, 94%)";
+}
+
+function setItem(key, value) {
+  localStorage.setItem(key, value);
+}
+
+function getItem(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+
+initTheme();
 initCountry();
