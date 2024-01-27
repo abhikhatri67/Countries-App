@@ -21,7 +21,7 @@ async function init() {
 }
 
 async function getCountries() {
-  const resp = await fetch("https://restcountries.eu/rest/v2/all");
+  const resp = await fetch("https://restcountries.com/v3.1/all");
   const countries = await resp.json();
 
   return countries;
