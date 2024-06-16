@@ -36,10 +36,10 @@ function renderCountry(countryDetails) {
   const fragment = document.createDocumentFragment();
   overallContainerEl.innerHTML += `<div class="country-container">
         <div class="flag-container">
-          <img src="${country.flag}" alt="" />
+          <img src="${country.flags.svg}" alt="" />
         </div>
         <div class="country-content">
-          <h1>${country.name}</h1>
+          <h1>${country.name.common}</h1>
           <div class="info-lists">
             <ul>
               <li><strong>Native Name:</strong> ${country.nativeName}</li>
